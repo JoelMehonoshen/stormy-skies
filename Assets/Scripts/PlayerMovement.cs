@@ -5,6 +5,8 @@ public class PlayerMovement : MonoBehaviour {
 	public Rigidbody2D playerRB;
 	public float speed;
 	public float turnSpeed;
+	public float maxSpeed;
+	public float currentSpeed;
 	// Use this for initialization
 	void Start () {
 		playerRB = GetComponent<Rigidbody2D> ();
@@ -12,6 +14,7 @@ public class PlayerMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		currentSpeed = playerRB.velocity.magnitude;
 		if (Input.GetKey (KeyCode.W)) {
 			playerRB.AddForce( transform.up * Time.deltaTime * speed);
 		}
@@ -25,5 +28,9 @@ public class PlayerMovement : MonoBehaviour {
 		if (Input.GetKey (KeyCode.A)) {
 			transform.Rotate (Vector3.forward * Time.deltaTime*turnSpeed);
 		}
+		if (currentSpeed > maxSpeed) {
+			playerRB.velocity = playerRB.velocity.normalized * maxSpeed;
+		}
+
 	}
 }
