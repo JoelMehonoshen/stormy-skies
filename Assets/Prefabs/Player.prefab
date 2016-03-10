@@ -190,8 +190,15 @@ MonoBehaviour:
   health: 0
   fuel: 0
   fuelConsumption: 2
+  gameOverScreen: {fileID: 0}
   fuelSlider: {fileID: 0}
   healthSlider: {fileID: 0}
+  player: {fileID: 0}
+  outOfFuelTimer: 0
+  fuelText: {fileID: 0}
+  healthText: {fileID: 0}
+  pauseText: {fileID: 0}
+  isPaused: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
