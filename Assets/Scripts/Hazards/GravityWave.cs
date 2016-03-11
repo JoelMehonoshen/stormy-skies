@@ -2,24 +2,18 @@
 using System.Collections;
 
 public class GravityWave : MonoBehaviour {
-	public Rigidbody2D playerRB; 
-
-
+	public float waveSpeed;
+	public float waveRotation;
+	public GameObject thisWave;
 	// Use this for initialization
 	void Start () {
-		GetComponent<Rigidbody2D>().AddForce (transform.right * -200);
-	}
-	void OnTriggerEnter2D (Collider2D other)
-	{
-		//if (other.gameObject = 
-		playerRB.AddForce(transform.right * -500); 
-
-
-
+		waveSpeed = 2.5f;
+		transform.Rotate (Vector3.forward * waveRotation);
 	}
 
 	// Update is called once per frame
 	void Update () {
-
+		
+		transform.Translate(Vector3.right*Time.deltaTime*waveSpeed);
 	}
 }
