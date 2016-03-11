@@ -37,7 +37,6 @@ public class PlayerController : MonoBehaviour {
 	}
 	public void fuelDrop(){
 		fuel += 10;
-		Debug.Log ("fuel");
 	}
 	public void healthDrop(){
 		health += 10;
@@ -89,6 +88,9 @@ public class PlayerController : MonoBehaviour {
 		fuelSlider.GetComponent<Slider>().value = fuel;
 		healthSlider.GetComponent<Slider>().value= health;
 		if (Input.GetKey(KeyCode.W)) {
+			fuel -= fuelConsumption * Time.deltaTime;
+		}
+		if (Input.GetKey(KeyCode.S)) {
 			fuel -= fuelConsumption * Time.deltaTime;
 		}
 	}

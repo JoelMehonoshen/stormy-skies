@@ -5,12 +5,13 @@ public class FuelDrop : MonoBehaviour {
 	public GameObject player;
 	void Start () {
 		player = GameObject.FindGameObjectWithTag ("Player");
+		gameObject.SetActive(true);
 	}
 
 	void OnCollisionEnter2D(Collision2D col){
 		if (col.gameObject.tag== "Player") {
 			player.GetComponent<PlayerController>().fuelDrop ();
-			Destroy (gameObject);
+			gameObject.SetActive(false);
 		}
 	}
 	// Update is called once per frame

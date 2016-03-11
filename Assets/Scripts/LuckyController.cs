@@ -11,9 +11,13 @@ public class LuckyController : MonoBehaviour {
 	public float distanceToTarget;
 	public bool hasDrop;
 	public GameObject drop;
+	public float resetTimer;
+	public float currentSpeed;
+	public Rigidbody2D luckyRB;
 	// Use this for initialization
 
 	void Start () {
+		resetTimer = 5;
 		luckyTransform = transform;
 		gotTarget = false;
 		target = playerTransform;
@@ -32,18 +36,30 @@ public class LuckyController : MonoBehaviour {
 			hasDrop = false;
 		}
 	}
+
 	// Update is called once per frame
 	void Update () {
 
+		currentSpeed = luckyRB.velocity.magnitude;
+		if (currentSpeed <= 0.1) {
+			resetTimer-=Time.deltaTime;
+			if (resetTimer<=0){
+				gotTarget=false;
+				resetTimer =5;
+			}
+		}
 
 		distanceToTarget = Vector3.Distance (click, luckyTransform.position);
 
 
-		RaycastHit2D hit = Physics2D.Raycast (Camera.main.ScreenToWorldPoint (Input.mousePosition), Vector2.zero);
-
-		if (Input.GetMouseButtonDown (0)&&hit&&gotTarget==false&& hit.collider.tag=="Drop") {
+	RaycastHit2D hit = Physics2D.Raycast (Camera.main.ScreenToWorldPoint (Input.mousePosition), Vector2.zero);
+	
 			
-			click = Camera.main.ScreenToWorldPoint (Input.mousePosition);
+		
+		if (Input.GetMouseButtonDown (0)&&hit&&gotTarget==false&&hit.collider.tag =="Drop") {
+
+			//click = Camera.main.ScreenToWorldPoint (Input.mousePosition);
+			click = hit.collider.transform.position;
 			click.z = 0;
 			gotTarget = true;
 
