@@ -172,9 +172,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRB: {fileID: 0}
-  speed: 100
-  turnSpeed: 50
-  maxSpeed: 5
+  speed: 150
+  turnSpeed: 75
+  maxSpeed: 7.5
   currentSpeed: 0
 --- !u!114 &11481000
 MonoBehaviour:

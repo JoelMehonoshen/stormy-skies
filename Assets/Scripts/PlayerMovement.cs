@@ -16,10 +16,10 @@ public class PlayerMovement : MonoBehaviour {
 	void Update () {
 		currentSpeed = playerRB.velocity.magnitude;
 		if (Input.GetKey (KeyCode.W)) {
-			playerRB.AddForce( transform.up * Time.deltaTime * speed);
+			playerRB.AddForce(transform.up * Time.deltaTime * speed);
 		}
 		if (Input.GetKey (KeyCode.S)) {
-			playerRB.AddForce( transform.up * Time.deltaTime * -speed);
+			playerRB.AddForce(transform.up * Time.deltaTime * -speed);
 		}
 		if (Input.GetKey (KeyCode.D)) {
 			transform.Rotate (Vector3.back * Time.deltaTime*turnSpeed);

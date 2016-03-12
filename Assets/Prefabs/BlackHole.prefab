@@ -1,47 +1,47 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &164630
+--- !u!1 &150994
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 403528}
-  - 33: {fileID: 3346684}
-  - 23: {fileID: 2368038}
-  - 114: {fileID: 11445732}
-  - 61: {fileID: 6111146}
+  - 4: {fileID: 426678}
+  - 33: {fileID: 3345688}
+  - 23: {fileID: 2379520}
+  - 58: {fileID: 5833168}
+  - 114: {fileID: 11491426}
   m_Layer: 0
-  m_Name: GravWave(UP)
+  m_Name: BlackHole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &403528
+--- !u!4 &426678
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 164630}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071067}
-  m_LocalPosition: {x: -12.44, y: -3.35, z: -1}
-  m_LocalScale: {x: 0.38455743, y: 1.7020175, z: 1}
+  m_GameObject: {fileID: 150994}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.31, y: 4.09, z: 0.94140625}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!23 &2368038
+--- !u!23 &2379520
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 164630}
+  m_GameObject: {fileID: 150994}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: bfbe11a308705334fb5432a4df17ec7f, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -57,47 +57,57 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!33 &3346684
+--- !u!33 &3345688
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 164630}
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!61 &6111146
-BoxCollider2D:
+  m_GameObject: {fileID: 150994}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!58 &5833168
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 164630}
+  m_GameObject: {fileID: 150994}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 1ed822ad56ed27c4399b63190a340413, type: 2}
-  m_IsTrigger: 0
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 2.93, y: 2}
---- !u!114 &11445732
+  m_Radius: 0.5
+--- !u!114 &11491426
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 164630}
+  m_GameObject: {fileID: 150994}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e779ff950dd0add4082c7fd25c0ade24, type: 3}
+  m_Script: {fileID: 11500000, guid: d7d34c3c912d2e94ebc7042e2ff4729b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveSpeed: 3
+  everything: []
+  count: 0
+  pullSpeed: 1
+  distanceAway: 0
+  maxDistAway: 10
+  timer: 30
+  player: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: timer
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 164630}
+  m_RootGameObject: {fileID: 150994}
   m_IsPrefabParent: 1

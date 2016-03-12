@@ -36,16 +36,25 @@ public class PlayerController : MonoBehaviour {
 		Application.LoadLevel (0);
 	}
 	public void fuelDrop(){
-		fuel += 10;
+		fuel += 25;
 	}
 	public void healthDrop(){
-		health += 10;
+		health += 25;
 	}
 	public void outOfFuel(){
 		gameOverScreen.SetActive (false);
 	}
 	public void hitWall(){
 		health -=20;
+	}
+	public void solarRay(){
+		health -=Random.Range(10,25);
+	}
+	public void blackHole(){
+		health -=Random.Range(25,50);
+	}
+	public void asteroidHit(){
+		health -=Random.Range(5, 15);
 	}
 	public void GameOver(){
 		gameOverScreen.SetActive (true);

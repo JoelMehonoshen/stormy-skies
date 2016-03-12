@@ -7,8 +7,11 @@ public class BlackHole : MonoBehaviour {
 	public float pullSpeed;
 	public float distanceAway;
 	public float maxDistAway;
+	public float timer;
+	public GameObject player;
 	// Use this for initialization
 	void Start () {
+		player = GameObject.FindGameObjectWithTag ("Player");
 		distanceAway = 0;
 		count = 0;
 		everything.AddRange (GameObject.FindGameObjectsWithTag("Drop"));
@@ -16,21 +19,31 @@ public class BlackHole : MonoBehaviour {
 		everything.AddRange (GameObject.FindGameObjectsWithTag("Player"));
 		everything.AddRange (GameObject.FindGameObjectsWithTag("Hazard"));
 	}
-
+	void OnTriggerEnter2D(Collider2D col){
+		if (col.gameObject.tag == "Player") {
+			player.GetComponent<PlayerController> ().blackHole ();
+		}
+	}
 	// Update is called once per frame
 	void Update () {
 
+		timer -= Time.deltaTime;
+		if (timer <= 0) {
+			Destroy (gameObject);
+		}
+
 
 		foreach (GameObject thing in everything) {
-			distanceAway = Vector3.Distance (thing.transform.position, transform.position);
-			float step =  pullSpeed *Time.deltaTime;
-			if (distanceAway >= maxDistAway)
-			{
-			} else thing.transform.position = Vector3.MoveTowards(thing.transform.position,transform.position,step);
+			if (thing != null) {
+				distanceAway = Vector3.Distance (thing.transform.position, transform.position);
+				float step = pullSpeed * Time.deltaTime;
+				if (distanceAway >= maxDistAway) {
+				} else
+					thing.transform.position = Vector3.MoveTowards (thing.transform.position, transform.position, step);
 		
 	
-		count = everything.Count;
-
+				count = everything.Count;
+			}
 	}
 }
 }
