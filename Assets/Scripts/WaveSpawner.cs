@@ -22,7 +22,7 @@ public class WaveSpawner : MonoBehaviour {
 		timer -= Time.deltaTime;
 		if (timer <= 0) {
 			GameObject other = Instantiate (wave,spawnPos, Quaternion.identity) as GameObject;
-			frequency = Random.Range (3f, 10f);
+			frequency = Random.Range (5f, 15f);
 			timer = frequency;
 		}
 

@@ -28,8 +28,10 @@ public class SolarRays : MonoBehaviour {
 		timer -= Time.deltaTime;
 		if (timer <= 0) {
 			GetComponent<MeshFilter> ().mesh = endMesh;
+			gameObject.transform.localScale += new Vector3 (0.1f, 0.1f, 0);
 		}
 		if (timer <= -1) {
+			
 			Destroy (gameObject);
 		}
 	}

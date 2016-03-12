@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour {
 		gameOverScreen.SetActive (false);
 	}
 	public void hitWall(){
-		health -=20;
+		health -=10;
 	}
 	public void solarRay(){
 		health -=Random.Range(10,25);

@@ -12,7 +12,7 @@ public class GravityWave : MonoBehaviour {
 	public float angle;
 	// Use this for initialization
 	void Start () {
-		pushPower = Random.Range (5f, 10f);
+		pushPower = Random.Range (7.5f, 10f);
 		originalPos = transform.position;
 		gameObject.SetActive (true);
 		randomDirection = new Vector3 (Random.Range(-1f,1f), Random.Range(-1f,1f), 0);

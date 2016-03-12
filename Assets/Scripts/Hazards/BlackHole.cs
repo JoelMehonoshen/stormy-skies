@@ -22,7 +22,10 @@ public class BlackHole : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D col){
 		if (col.gameObject.tag == "Player") {
 			player.GetComponent<PlayerController> ().blackHole ();
-		}
+		} else if (col.gameObject.tag == "Lucky") {} 
+		else if (col.gameObject.tag == "Wall") {} 
+		else
+		col.gameObject.SetActive (false);
 	}
 	// Update is called once per frame
 	void Update () {
