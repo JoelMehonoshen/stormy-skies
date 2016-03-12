@@ -91,7 +91,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   everything: []
   count: 0
-  pullSpeed: 1.5
+  pullSpeed: 2
   distanceAway: 0
   maxDistAway: 15
   timer: 30
@@ -113,7 +113,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: pullSpeed
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalScale.x
