@@ -9,6 +9,7 @@ public class BlackHole : MonoBehaviour {
 	public float maxDistAway;
 	public float timer;
 	public GameObject player;
+	public GameObject child;
 	// Use this for initialization
 	void Start () {
 		player = GameObject.FindGameObjectWithTag ("Player");
@@ -32,6 +33,7 @@ public class BlackHole : MonoBehaviour {
 
 		timer -= Time.deltaTime;
 		if (timer <= 0) {
+			Destroy (child);
 			Destroy (gameObject);
 		}
 

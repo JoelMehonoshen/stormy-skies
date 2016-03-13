@@ -3,6 +3,7 @@ using System.Collections;
 
 public class FuelDrop : MonoBehaviour {
 	public GameObject player;
+	public float timer;
 	void Start () {
 		player = GameObject.FindGameObjectWithTag ("Player");
 		gameObject.SetActive(true);
@@ -13,8 +14,15 @@ public class FuelDrop : MonoBehaviour {
 			player.GetComponent<PlayerController>().fuelDrop ();
 			gameObject.SetActive(false);
 		}
+		if (col.gameObject.tag == "Lucky") {
+			timer = 99999;
+		}
 	}
 	// Update is called once per frame
 	void Update () {
+		timer -= Time.deltaTime;
+		if (timer <= 0) {
+			gameObject.SetActive (false);
+		}
 	}
 }

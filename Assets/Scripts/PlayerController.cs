@@ -51,10 +51,10 @@ public class PlayerController : MonoBehaviour {
 		health -=Random.Range(10,25);
 	}
 	public void blackHole(){
-		health -=Random.Range(25,50);
+		health -=Random.Range(25,35);
 	}
 	public void asteroidHit(){
-		health -=Random.Range(5, 15);
+		health -=Random.Range(10, 20);
 	}
 	public void GameOver(){
 		gameOverScreen.SetActive (true);
